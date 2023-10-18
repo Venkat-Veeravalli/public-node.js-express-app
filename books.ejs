@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Books</title>
+    <script src="https://kit.fontawesome.com/0fc647e4b7.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            background-color: #333;
+            color: #fff;
+            margin: 0;
+            padding: 20px 0;
+            font-family: 'Your Custom Font', sans-serif; /* Change 'Your Custom Font' to your desired font */
+        }
+
+        .search-container {
+            display: flex;
+            justify-content: center;
+            margin: 20px;
+        }
+
+        .search-container input[type="text"] {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 250px;
+            font-size: 16px;
+        }
+
+        .search-container button {
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .search-container button:hover {
+            background-color: #555;
+        }
+
+        .menu-button {
+            margin-left: 20px;
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .menu-button:hover {
+            background-color: #555;
+        }
+
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 20px;
+        }
+
+        .card {
+            background-color: #ffeeee; /* Change the background color */
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin: 10px;
+            width: 280px;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s;
+            font-family: 'Verdana', sans-serif; /* Change the card font */
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card img {
+            max-width: 100%;
+            max-height: 150px;
+            object-fit: cover;
+        }
+
+        .card-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card h3 {
+            font-size: 20px; /* Increase the font size for the title */
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .card p {
+            font-size: 16px;
+            margin: 5px 0;
+        }
+
+        .card p {
+            font-size: 16px;
+            margin: 5px 0;
+        }
+
+        .cart-container {
+            display: flex;
+            align-items: center;
+        }
+        
+
+        .cart-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .cart-button {
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cart-button:hover {
+            background-color: #555;
+        }
+
+        .user-profile {
+            display: none;
+            text-align: left;
+            background-color: #f8f8f8;
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin: 20px;
+            padding: 20px;
+        }
+
+        /* Styles for the Cart */
+        #cart {
+            display: none;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin: 20px;
+            padding: 20px;
+        }
+
+        #cart h2 {
+            font-size: 24px;
+        }
+
+        #cart-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        #cart-list li {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        /* Style for cart details */
+        .cart-details {
+            display: none;
+            text-align: left;
+            background-color: #f8f8f8;
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin: 20px;
+            padding: 20px;
+        }
+        /* Style for the "Add to Cart" button */
+/* Style for the "Add to Cart" and "Order Now" buttons */
+form[action="addToCart"] button, form[action="addToOrders"] button {
+    background-color: #007BFF; /* Blue background color */
+    color: white; /* White text color */
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px auto; /* Center the buttons and add margin for spacing */
+    width: 100%; /* Make the buttons full width */
+}
+
+form[action="addToCart"] button:hover, form[action="addToOrders"] button:hover {
+    background-color: #0056b3; /* Darker blue color on hover */
+}
+
+/* Style for the quantity input box */
+form[action="addToCart"] input[type="number"], form[action="addToOrders"] input[type="number"] {
+    width: 100px; /* Adjust the width as needed */
+    font-size: 16px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Style for the Amazon-like orders feature */
+#order-history {
+    text-align: left;
+}
+
+#order-history h2 {
+    font-size: 24px;
+}
+
+#order-history ul {
+    list-style: none;
+    padding: 0;
+}
+
+#order-history ul li {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+    /* Custom CSS for the Add to Cart button */
+    form[action="/cartsubmit"] button {
+        background-color: #28a745; /* Green background color */
+        color: white; /* White text color */
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        cursor: pointer;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 10px auto; /* Center the button and add margin for spacing */
+        width: 100%; /* Make the button full width */
+    }
+
+    form[action="/cartsubmit"] button:hover {
+        background-color: #218838; /* Darker green color on hover */
+    }
+
+    form[action="/cartsubmit"] input[type="number"] {
+        width: 100px; /* Adjust the width as needed */
+        font-size: 16px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+
+
+    </style>
+</head>
+
+<body>
+    <h1>Welcome to the Bookish Library</h1>
+    <div class="search-container">
+        <!-- Your search input and buttons here -->
+        <input type="text" id="search-input" placeholder="Search for books...">
+        <button id="search-button" onclick="searchBooks()">Search</button>
+        <a href="/home"><button class="menu-button">Home</button></a>
+        <a href="/dash"><button class="menu-button">Logout</button></a>
+        <div class="cart-container">
+            <form action="/carted-items" method="POST">
+                <input type="hidden" name="title" value="Product Title">
+                <input type="hidden" name="price" value="Product Price">
+                <input type="hidden" name="quantity" value="Product Quantity">
+                <button class="menu-button cart-button" type="submit"><i class="fa-solid fa-cart-shopping"></i> Cart</button>
+            </form>
+          
+        </div>
+        <button class="menu-button" id="user-profile-button" onclick="toggleUserProfile()"><i class="fa-solid fa-user"></i> User</button>
+    </div>
+    <div class="user-profile" id="user-profile">
+        <h2>User Profile</h2>
+        <p><strong>Name:</strong> <span id="user-name"></span></p>
+        <p><strong>Email:</strong> <span id="user-email"></span></p>
+    </div>
+  
+    <div class="cart-details" id="cart-details">
+        <h2>Shopping Cart</h2>
+        <ul id="cart-list">
+        </ul>
+    </div>
+    <div class="card-container">
+        
+        <% books.forEach(book => { %>
+        <div class="card">
+            <img src="<%= book.imageUrl %>" alt="<%= book.title %>">
+            <div class="card-info">
+                <h3><%= book.title %></h3>
+                <p><strong>Author:</strong> <%= book.author %></p>
+                <p><strong>Price:</strong> $<%= book.price %></p>
+                <p><strong>PhoneNumber:</strong> <%= book.phoneNumber %></p>
+                <p><strong>Location:</strong> <%= book.location %></p>
+                <p><strong>Department:</strong> <%= book.department %></p>
+                <form action="/cartsubmit" method="POST">
+                    <input type="hidden" name="title" value="<%= book.title %>">
+                    <input type="hidden" name="price" value="<%= book.price %>">
+                    <input type="number" style="width: 50px; font-weight: bold;" name="quantity" value="1">
+                    <button type="submit" class="btn btn-outline-success" name="action" value="add_to_cart">
+                        ADD TO CART <i class="bi bi-cart4"></i>
+                    </button>
+                </form>
+                <form action="addToOrders" method="POST">
+                    <input type="hidden" name="title" value="<%= book.title %>">
+                    <input type="hidden" name="price" value="<%= book.price %>">
+                    <input type="number" style="width: 50px; font-weight: bold;" name="quantity" value="1">
+                    <button type="submit" class="btn btn-outline-success" name="action" value="order_now">
+                        ORDER NOW <i class="bi bi-basket-fill"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <% }); %>
+    </div>
+    <script>
+        // JavaScript code for cart functionality
+        const cartButton = document.getElementById('cart-button');
+        const cartQuantity = document.getElementById('cart-quantity');
+        const cartDetails = document.getElementById('cart-details');
+        const cartList = document.getElementById('cart-list');
+
+        cartButton.addEventListener('click', toggleCart);
+
+        function toggleCart() {
+            if (cartDetails.style.display === 'none' || cartDetails.style.display === '') {
+                cartDetails.style.display = 'block';
+            } else {
+                cartDetails.style.display = 'none';
+            }
+        }
+
+        function addItemToCart(bookTitle) {
+            const listItem = document.createElement('li');
+            listItem.textContent = bookTitle;
+            cartList.appendChild(listItem);
+
+            const currentQuantity = parseInt(cartQuantity.textContent, 10);
+            cartQuantity.textContent = currentQuantity + 1;
+        }
+
+        // JavaScript code for user profile toggle
+        const userIcon = document.getElementById('user-profile-button');
+    const userProfile = document.getElementById('user-profile');
+    const userNameSpan = document.getElementById('user-name');
+    const userEmailSpan = document.getElementById('user-email');
+    let userProfileVisible = false;
+
+    // Function to fetch and display user data
+    function fetchAndDisplayUserData() {
+        // You can fetch user data from a server here or hardcode it for testing
+        const userData = {
+            username: 'John Doe',
+            email: 'johndoe@example.com',
+        };
+
+        userNameSpan.textContent = userData.username;
+        userEmailSpan.textContent = userData.email;
+        userProfile.style.display = 'block';
+    }
+
+    userIcon.addEventListener('click', () => {
+    userProfileVisible = !userProfileVisible;
+
+    if (userProfileVisible) {
+        console.log("User profile button clicked");
+        fetchAndDisplayUserData();
+    } else {
+        userProfile.style.display = 'none';
+    }
+});
+                // JavaScript code for book search and display
+                const bookContainer = document.getElementById('book-container');
+        const searchInput = document.getElementById('search-input');
+        const books = [
+            /* Your book data, as an array of objects */
+        ];
+
+        function createBookCard(book) {
+            const card = document.createElement('div');
+            card.className = 'card';
+            // Create the card content here based on your book data
+            // Example:
+            card.innerHTML = `
+                <img src="${book.imageUrl}" alt="${book.title}">
+                <div class="card-info">
+                    <h3>${book.title}</h3>
+                    <p><strong>Author:</strong> ${book.author}</p>
+                    <p><strong>Price:</strong> $${book.price}</p>
+                    <!-- Add your "Add to Cart" and "Order Now" forms here -->
+                </div>
+            `;
+            bookContainer.appendChild(card);
+        }
+
+        function updateBookDisplay(filteredBooks) {
+            // Clear existing book cards
+            bookContainer.innerHTML = '';
+
+            // Create and add the book cards for the filtered books
+            filteredBooks.forEach(book => {
+                createBookCard(book);
+            });
+        }
+
+        function searchBooks() {
+            const searchTerm = searchInput.value.toLowerCase();
+
+            // Filter books based on the search term (by title)
+            const filteredBooks = books.filter(book => book.title.toLowerCase().includes(searchTerm));
+
+            // Update the book display with the filtered books
+            updateBookDisplay(filteredBooks);
+        }
+
+        // Initial display of all books
+        updateBookDisplay(books);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Store Website</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+section{
+    width: 100%;
+    height: 100vh;
+    background-image: url(image/bg.png);
+    background-size: cover;
+    background-position: center;
+}
+
+section nav{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    box-shadow: 0 0 10px #089da1;
+    background: #fff;
+    position: fixed;
+    left: 0;
+    z-index: 100;
+}
+
+section nav .logo img{
+    width: 100px;
+    cursor: pointer;
+    margin: 8px 0;
+}
+
+section nav ul{
+    list-style: none;
+}
+
+section nav li{
+    display: inline-block;
+    padding: 0 10px;
+}
+
+section nav li a{
+    text-decoration: none;
+    color: #000;
+}
+
+section nav li a:hover{
+    color: #089da1;
+}
+
+section nav .social_icon i{
+    margin: 0 5px;
+    font-size: 18px;
+}
+
+section nav .social_icon i:hover{
+    color: #089da1;
+    cursor: pointer;
+}
+
+section .main{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+    top: 10%;
+}
+
+section .main h1{
+    position: relative;
+    font-size: 55px;
+    top: -20px;
+    left: 25px;
+}
+
+section .main h1 span{
+    color: #089da1;
+}
+
+section .main p{
+    width: 650px;
+    text-align: justify;
+    line-height: 22px;
+    position: relative;
+    top: 50px;
+    left: 25px;
+}
+
+section .main .main_tag .main_btn{
+    background: #089da1;
+    padding: 10px 20px;
+    position: relative;
+    top: 120px;
+    left: 25px;
+    color: #fff;
+    text-decoration: none;
+}
+
+section .main .main_img img{
+    width: 780px;
+    position: relative;
+    top: 90px;
+    left: 20px;
+}
+
+
+
+
+/*services*/
+
+.services{
+    width: 100%;
+    height: auto;
+    margin: 35px 0;
+}
+
+.services .services_box{
+    width: 95%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.services .services_box .services_card{
+    text-align: center;
+    width: 310px;
+    height: auto;
+    box-shadow: 0 0 8px #089da1;
+    padding: 15px 10px;
+}
+
+.services .services_box .services_card i{
+    color: #089da1;
+    font-size: 45px;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+
+.services .services_box .services_card h3{
+    margin-bottom: 10px;
+}
+
+
+
+
+/*about*/
+
+.about{
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.about .about_image img{
+    width: 800px;
+}
+
+.about .about_tag h1{
+    font-size: 50px;
+    position: relative;
+    bottom: 35px;
+}
+
+.about .about_tag p{
+    line-height: 22px;
+    width: 650px;
+    text-align: justify;
+    margin-bottom: 15px;
+}
+
+.about .about_tag .about_btn{
+    padding: 10px 20px;
+    background: #089da1;
+    color: #fff;
+    text-decoration: none;
+    position: relative;
+    top: 50px;
+}
+
+
+
+/*Books*/
+
+.featured_boks{
+    width: 100%;
+    height: 100vh;
+    padding: 70px 0;
+}
+
+.featured_boks h1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+    font-size: 45px;
+}
+
+.featured_boks .featured_book_box{
+    width: 95%;
+    height: 60vh;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    overflow: hidden;
+    overflow-x: scroll;
+}
+
+.featured_boks .featured_book_box .featured_book_card{
+    width: 250px;
+    height: 420px;
+    text-align: center;
+    padding: 5px;
+    border: 1px solid #919191;
+    margin: auto 20px;
+}
+
+.featured_boks .featured_book_box .featured_book_card:hover{
+    box-shadow: 0 0 5px #089da1;
+}
+
+.featured_boks .featured_book_box .featured_book_card .featurde_book_img img{
+    width: 150px;
+}
+
+.featured_boks .featured_book_box .featured_book_card .featurde_book_tag h2{
+    margin: 12px;
+}
+
+.featured_boks .featured_book_box .featured_book_card .featurde_book_tag .writer{
+    color: #919191;
+}
+
+.featured_boks .featured_book_box .featured_book_card .featurde_book_tag .categories{
+    color: #089da1;
+    margin-top: 8px;
+}
+
+.featured_boks .featured_book_box .featured_book_card .featurde_book_tag .book_price{
+    margin-top: 8px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.featured_boks .featured_book_box .featured_book_card .featurde_book_tag .book_price sub{
+    font-weight: 100;
+    padding: 0 5px;
+}
+
+.featured_boks .featured_book_box .featured_book_card .featurde_book_tag .f_btn{
+    padding: 8px 20px;
+    border: 2px solid #089da1;
+    text-decoration: none;
+    color: #000;
+}
+
+::-webkit-scrollbar{
+    width: 10px;
+    height: 5px;
+}
+
+::-webkit-scrollbar-track{
+    box-shadow: inset 0 0 8px rgba(0,0,0,0.2);
+}
+
+::-webkit-scrollbar-thumb{
+    background: #089da1;
+    border-radius: 10px;
+}
+
+
+
+
+/*arrivals*/
+
+.arrivals{
+    width: 100%;
+    height: 100vh;
+    margin-bottom: 35px;
+}
+
+.arrivals h1{
+    font-size: 50px;
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.arrivals .arrivals_box{
+    width: 95%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 25px 0;
+}
+
+.arrivals .arrivals_box .arrivals_card{
+    width: 250px;
+    height: 340px;
+    text-align: center;
+    padding: 5px;
+    border: 1px solid #919191;
+    margin: auto 20px;
+}
+
+.arrivals .arrivals_box .arrivals_card:hover{
+    box-shadow: 0 0 5px #089da1;
+}
+
+.arrivals .arrivals_box .arrivals_card .arrivals_image{
+    width: 150px;
+    height: 220px;
+    margin: 0 auto;
+    cursor: pointer;
+    box-shadow: 0 0 8px rgba(0,0,0,0.5);
+    overflow: hidden;
+}
+
+.arrivals .arrivals_box .arrivals_card .arrivals_image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: 0.3s;
+}
+
+.arrivals .arrivals_box .arrivals_card:hover .arrivals_image img{
+    transform: scale(1.1);
+}
+
+.arrivals .arrivals_box .arrivals_card .arrivals_tag p{
+    font-family: queen of camelot;
+    font-size: 20px;
+    margin: 8px 0;
+}
+
+.arrivals .arrivals_box .arrivals_card .arrivals_tag .arrivals_icon{
+    color: #089da1;
+    margin-bottom: 18px;
+}
+
+.arrivals .arrivals_box .arrivals_card .arrivals_tag .arrivals_btn{
+    padding: 8px 20px;
+    border: 2px solid #089da1;
+    text-decoration: none;
+    color: #000;
+}
+
+
+
+
+/*reviews*/
+
+.reviews{
+    width: 100%;
+    height: auto;
+}
+
+.reviews h1{
+    text-align: center;
+    font-size: 50px;
+    margin-top: 55px;
+}
+
+.reviews .review_box{
+    width: 95%;
+    height: 50vh;
+    margin: 15px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.reviews .review_box .review_card{
+    width: 400px;
+    height: 320px;
+    box-shadow: 0 0 8px #089da1;
+    padding: 15px;
+    margin: 0 12px;
+}
+
+.reviews .review_box .review_card i{
+    float: right;
+    font-size: 120px;
+    position: relative;
+    bottom: 20px;
+    color: #eaeaea;
+}
+
+.reviews .review_box .review_card .card_top img{
+    width: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.reviews .review_box .review_card .card p{
+    margin: 10px 0 10px 0;
+    text-align: justify;
+    line-height: 22px;
+}
+
+.reviews .review_box .review_card .card .review_icon i{
+    font-size: 16px;
+    float: left;
+    margin-top: 20px;
+    color: #089da1;
+    padding: 0 1px;
+}
+
+
+
+
+/*Banner*/
+
+.banner{
+    width: 100%;
+    height: 50vh;
+    background-image: url(image/banner.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.banner .banner_btn{
+    padding: 8px 20px;
+    background: #089da1;
+    text-decoration: none;
+    color: #fff;
+    position: relative;
+    top: 70%;
+    left: 7%;
+}
+
+
+
+
+/*Blog*/
+
+.blog{
+    width: 100%;
+    height: auto;
+    margin: 25px 0;
+}
+
+.blog h1{
+    text-align: center;
+    font-size: 50px;
+    margin-bottom: 30px;
+}
+
+.blog .blog_box{
+    width: 95%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.blog .blog_box .blog_card{
+    margin: 0 auto;
+    width: 450px;
+    height: auto;
+    box-shadow: 0 0 8px rgba(0,0,0,0.5);
+}
+
+.blog .blog_box .blog_card .blog_img{
+    width: 450px;
+    height: 300px;
+    overflow: hidden;
+}
+
+.blog .blog_box .blog_card .blog_img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.blog .blog_box .blog_card .blog_tag{
+    padding: 20px;
+}
+
+.blog .blog_box .blog_card .blog_tag h2{
+    color: #089da1;
+}
+
+.blog .blog_box .blog_card .blog_tag p{
+    margin-top: 10px;
+    text-align: justify;
+    line-height: 22px;
+}
+
+.blog .blog_box .blog_card .blog_tag .blog_icon{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #089da1;
+    cursor: pointer;
+}
+
+
+
+
+/*Footer*/
+
+footer{
+    width: 100%;
+    background: #eaeaea;
+}
+
+footer .footer_main{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+footer .footer_main .tag{
+    margin: 10px 0;
+}
+
+footer .footer_main .tag img{
+    width: 100px;
+    margin-bottom: 10px;
+}
+
+footer .footer_main .tag p{
+    width: 250px;
+    line-height: 22px;
+    text-align: justify;
+}
+
+footer .footer_main .tag h1{
+    font-size: 25px;
+    margin: 25px 0;
+    color: #000;
+}
+
+footer .footer_main .tag a{
+    display: block;
+    color: black;
+    text-decoration: none;
+    margin: 10px 0;
+}
+
+footer .footer_main .tag i{
+    margin-right: 10px;
+}
+
+footer .footer_main .tag .social_link i{
+    margin: 0 5px;
+}
+
+footer .footer_main .tag .search_bar{
+    width: 230px;
+    height: 30px;
+    background: rgba(202,202,202);
+    border-radius: 25px;
+}
+
+footer .footer_main .tag .search_bar input{
+    width: 200px;
+    padding: 2px 0;
+    position: relative;
+    top: 17%;
+    left: 6%;
+    border: none;
+    outline: none;
+    font-size: 13px;
+    background: none;
+}
+
+footer .footer_main .tag .search_bar button{
+    padding: 7px 15px;
+    background: #089da1;
+    border: none;
+    margin-top: 15px;
+    border-radius: 25px;
+    color: #fff;
+    cursor: pointer;
+}
+
+footer .end{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    color: #000;
+}
+
+footer .end span{
+    color: #089da1;
+    margin-left: 10px;
+}
+    </style>
+</head>
+<body>
+    
+    <section>
+
+        <nav>
+
+            <div class="logo">
+                <img src="https://cdn.glitch.global/4ba7356b-d2a0-4f5a-a8a9-d0d2835aadca/logo.png?v=1697363782632">
+            </div>
+
+            <ul>
+                <li><a href="/dash">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/upload">To Sell</a></li>
+                <li><a href="/books">Store</a></li>
+                <li><a href="#Reviews">Reviews</a></li>
+                <li><a href="#Blog">Blog</a></li>
+            </ul>
+
+            <div class="social_icon">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <i class="fa-solid fa-heart"></i>
+            </div>
+
+        </nav>
+
+        <div class="main">
+
+            <div class="main_tag">
+                <h1>WELCOME TO<br><span>BOOKISH LIBRARY</span></h1>
+                <h1>"A World of Knowledge at Your Fingertips"</h1>
+
+                <p>
+                    At Bookish Library, we are dedicated to bringing the boundless world of literature and information directly to you, no matter where you are. As the legendary author Carl Sagan once said, "Books break the shackles of time. A book is proof that humans are capable of working magic." With our digital library, we aim to make that magic accessible to all.
+                </p>
+                <a href="#" class="main_btn">Learn More</a>
+
+            </div>
+
+            <div class="main_img">
+                <img src="https://cdn.glitch.global/4ba7356b-d2a0-4f5a-a8a9-d0d2835aadca/watsapp-remo.png?v=1697363922607">
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+
+    <!--Services-->
+
+    <div class="services">
+
+        <div class="services_box">
+
+            <div class="services_card">
+                <i class="fa-solid fa-truck-fast"></i>
+                <h3>Fast Delivery</h3>
+               
+            </div>
+
+            <div class="services_card">
+                <i class="fa-solid fa-headset"></i>
+                <h3>24 x 7 Services</h3>
+               
+            </div>
+
+            <div class="services_card">
+                <i class="fa-solid fa-tag"></i>
+                <h3>Best Deal</h3>
+      
+            </div>
+
+            <div class="services_card">
+                <i class="fa-solid fa-lock"></i>
+                <h3>Secure Payment</h3>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+    <!--About-->
+
+    <div class="about">
+
+        <div class="about_image">
+            <img src="https://cdn.glitch.global/4ba7356b-d2a0-4f5a-a8a9-d0d2835aadca/about.png?v=1697363953426">
+        </div>
+        <div class="about_tag">
+            <h1>About Us</h1>
+            <p>
+                Our library is not just a collection of books; it's a gateway to worlds uncharted, mysteries unsolved, and stories yet untold. From classic literature to contemporary bestsellers, academic journals to captivating novels, we have curated an extensive collection that covers a vast array of subjects and genres
+            </p>
+            <a href="#" class="about_btn">Learn More</a>
+        </div>
+
+    </div>
+
+
+
+
+
+    <!--Books-->
+
+    <div class="featured_boks">
+
+        <h1>Featured Books</h1>
+
+        <div class="featured_book_box">
+
+            <div class="featured_book_card">
+
+                <div class="featurde_book_img">
+                    <img src="https://cdn.glitch.global/9a0a1a2a-04e6-46dc-a4d2-8051b69327ce/book_1.jpg?v=1697366615577">
+                </div>
+
+                <div class="featurde_book_tag">
+                    <h2>Featured Books</h2>
+                    <p class="writer">John Deo</p>
+                    <div class="categories">Thriller, Horror, Romance</div>
+                    <p class="book_price">$25.50<sub><del>$28.60</del></sub></p>
+                    <a href="#" class="f_btn">Learn More</a>
+                </div>               
+
+            </div>
+
+            <div class="featured_book_card">
+
+                <div class="featurde_book_img">
+                    <img src="https://cdn.glitch.global/4ba7356b-d2a0-4f5a-a8a9-d0d2835aadca/book_2.jpg?v=1697364081696">
+                </div>
+
+                <div class="featurde_book_tag">
+                    <h2>Featured Books</h2>
+                    <p class="writer">John Deo</p>
+                    <div class="categories">Thriller, Horror, Romance</div>
+                    <p class="book_price">$25.50<sub><del>$28.60</del></sub></p>
+                    <a href="#" class="f_btn">Learn More</a>
+                </div>               
+
+            </div>
+
+            <div class="featured_book_card">
+
+                <div class="featurde_book_img">
+                    <img src="https://cdn.glitch.global/4ba7356b-d2a0-4f5a-a8a9-d0d2835aadca/book_3.jpg?v=1697364148556">
+                </div>
+
+                <div class="featurde_book_tag">
+                    <h2>Featured Books</h2>
+                    <p class="writer">John Deo</p>
+                    <div class="categories">Thriller, Horror, Romance</div>
+                    <p class="book_price">$25.50<sub><del>$28.60</del></sub></p>
+                    <a href="#" class="f_btn">Learn More</a>
+                </div>               
+
+            </div>
+
+            <div class="featured_book_card">
+
+                <div class="featurde_book_img">
+                    <img src="https://cdn.glitch.global/4ba7356b-d2a0-4f5a-a8a9-d0d2835aadca/book_4.jpg?v=1697364173383">
+                </div>
+
+                <div class="featurde_book_tag">
+                    <h2>Featured Books</h2>
+                    <p class="writer">John Deo</p>
+                    <div class="categories">Thriller, Horror, Romance</div>
+                    <p class="book_price">$25.50<sub><del>$28.60</del></sub></p>
+                    <a href="#" class="f_btn">Learn More</a>
+                </div>               
+
+            </div>
+
+            <div class="featured_book_card">
+
+                <div class="featurde_book_img">
+                    <img src="https://cdn.glitch.global/4ba7356b-d2a0-4f5a-a8a9-d0d2835aadca/book_5.jpg?v=1697364196947">
+                </div>
+
+                <div class="featurde_book_tag">
+                    <h2>Featured Books</h2>
+                    <p class="writer">John Deo</p>
+                    <div class="categories">Thriller, Horror, Romance</div>
+                    <p class="book_price">$25.50<sub><del>$28.60</del></sub></p>
+                    <a href="#" class="f_btn">Learn More</a>
+                </div>               
+
+            </div>
+            
+            <div class="featured_book_card">
+
+                <div class="featurde_book_img">
+                    <img src="https://cdn.glitch.global/4ba7356b-d2a0-4f5a-a8a9-d0d2835aadca/book_6.jpg?v=1697364225598">
+                </div>
+
+                <div class="featurde_book_tag">
+                    <h2>Featured Books</h2>
+                    <p class="writer">John Deo</p>
+                    <div class="categories">Thriller, Horror, Romance</div>
+                    <p class="book_price">$25.50<sub><del>$28.60</del></sub></p>
+                    <a href="#" class="f_btn">Learn More</a>
+                </div>               
+
+            </div>
+
+            <div class="featured_book_card">
+
+                <div class="featurde_book_img">
+                    <img src="https://cdn.glitch.global/4ba7356b-d2a0-4f5a-a8a9-d0d2835aadca/book_7.png?v=1697364233953">
+                </div>
+
+                <div class="featurde_book_tag">
+                    <h2>Featured Books</h2>
+                    <p class="writer">John Deo</p>
+                    <div class="categories">Thriller, Horror, Romance</div>
+                    <p class="book_price">$25.50<sub><del>$28.60</del></sub></p>
+                    <a href="#" class="f_btn">Learn More</a>
+                </div>               
+
+            </div>
+
+            <div class="featured_book_card">
+
+                <div class="featurde_book_img">
+                    <img src="https://cdn.glitch.global/4ba7356b-d2a0-4f5a-a8a9-d0d2835aadca/book_8.png?v=1697364240215">
+                </div>
+
+                <div class="featurde_book_tag">
+                    <h2>Featured Books</h2>
+                    <p class="writer">John Deo</p>
+                    <div class="categories">Thriller, Horror, Romance</div>
+                    <p class="book_price">$25.50<sub><del>$28.60</del></sub></p>
+                    <a href="#" class="f_btn">Learn More</a>
+                </div>               
+
+            </div>
+
+            <div class="featured_book_card">
+
+                <div class="featurde_book_img">
+                    <img src="https://cdn.glitch.global/4ba7356b-d2a0-4f5a-a8a9-d0d2835aadca/book_9.jpg?v=1697364243997">
+                </div>
+
+                <div class="featurde_book_tag">
+                    <h2>Featured Books</h2>
+                    <p class="writer">John Deo</p>
+                    <div class="categories">Thriller, Horror, Romance</div>
+                    <p class="book_price">$25.50<sub><del>$28.60</del></sub></p>
+                    <a href="#" class="f_btn">Learn More</a>
+                </div>               
+
+            </div>
+
+            <div class="featured_book_card">
+
+                <div class="featurde_book_img">
+                    <img src="https://cdn.glitch.global/4ba7356b-d2a0-4f5a-a8a9-d0d2835aadca/book_10.png?v=1697364250021">
+                </div>
+
+                <div class="featurde_book_tag">
+                    <h2>Featured Books</h2>
+                    <p class="writer">John Deo</p>
+                    <div class="categories">Thriller, Horror, Romance</div>
+                    <p class="book_price">$25.50<sub><del>$28.60</del></sub></p>
+                    <a href="#" class="f_btn">Learn More</a>
+                </div>               
+
+            </div>
+
+            <div class="featured_book_card">
+
+                <div class="featurde_book_img">
+                    <img src="https://cdn.glitch.global/4ba7356b-d2a0-4f5a-a8a9-d0d2835aadca/book_11.jpg?v=1697364258975">
+                </div>
+
+                <div class="featurde_book_tag">
+                    <h2>Featured Books</h2>
+                    <p class="writer">John Deo</p>
+                    <div class="categories">Thriller, Horror, Romance</div>
+                    <p class="book_price">$25.50<sub><del>$28.60</del></sub></p>
+                    <a href="#" class="f_btn">Learn More</a>
+                </div>               
+
+            </div>
+
+            <div class="featured_book_card">
+
+                <div class="featurde_book_img">
+                    <img src="https://cdn.glitch.global/9a0a1a2a-04e6-46dc-a4d2-8051b69327ce/book_1.jpg?v=1697366615577">
+                </div>
+
+                <div class="featurde_book_tag">
+                    <h2>Featured Books</h2>
+                    <p class="writer">John Deo</p>
+                    <div class="categories">Thriller, Horror, Romance</div>
+                    <p class="book_price">$25.50<sub><del>$28.60</del></sub></p>
+                    <a href="#" class="f_btn">Learn More</a>
+                </div>               
+
+            </div>
+
+            <div class="featured_book_card">
+
+                <div class="featurde_book_img">
+                    <img src="https://cdn.glitch.global/9a0a1a2a-04e6-46dc-a4d2-8051b69327ce/book_13.png?v=1697365210043">
+                </div>
+
+                <div class="featurde_book_tag">
+                    <h2>Featured Books</h2>
+                    <p class="writer">John Deo</p>
+                    <div class="categories">Thriller, Horror, Romance</div>
+                    <p class="book_price">$25.50<sub><del>$28.60</del></sub></p>
+                    <a href="#" class="f_btn">Learn More</a>
+                </div>               
+
+            </div>
+
+            <div class="featured_book_card">
+
+                <div class="featurde_book_img">
+                    <img src="https://cdn.glitch.global/9a0a1a2a-04e6-46dc-a4d2-8051b69327ce/book_14.png?v=1697365321048">
+                </div>
+
+                <div class="featurde_book_tag">
+                    <h2>Featured Books</h2>
+                    <p class="writer">John Deo</p>
+                    <div class="categories">Thriller, Horror, Romance</div>
+                    <p class="book_price">$25.50<sub><del>$28.60</del></sub></p>
+                    <a href="#" class="f_btn">Learn More</a>
+                </div>               
+
+            </div>
+
+            <div class="featured_book_card">
+
+                <div class="featurde_book_img">
+                    <img src="https://cdn.glitch.global/9a0a1a2a-04e6-46dc-a4d2-8051b69327ce/book_15.png?v=1697365336046">
+                </div>
+
+                <div class="featurde_book_tag">
+                    <h2>Featured Books</h2>
+                    <p class="writer">John Deo</p>
+                    <div class="categories">Thriller, Horror, Romance</div>
+                    <p class="book_price">$25.50<sub><del>$28.60</del></sub></p>
+                    <a href="#" class="f_btn">Learn More</a>
+                </div>               
+
+            </div>
+
+            
+
+        </div>
+
+    </div>
+
+
+
+    
+    <!--Arrivals-->
+
+    <div class="arrivals">
+        <h1>New Arrivals</h1>
+
+        <div class="arrivals_box">
+
+            <div class="arrivals_card">
+                <div class="arrivals_image">
+                    <img src="https://cdn.glitch.global/9a0a1a2a-04e6-46dc-a4d2-8051b69327ce/arrival_1.jpg?v=1697364986635">
+                </div>
+                <div class="arrivals_tag">
+                    <p>New Arrivals</p>
+                    <div class="arrivals_icon">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <a href="#" class="arrivals_btn">Learn More</a>
+                </div>
+            </div>
+
+            <div class="arrivals_card">
+                <div class="arrivals_image">
+                    <img src="https://cdn.glitch.global/9a0a1a2a-04e6-46dc-a4d2-8051b69327ce/arrival_2.jpg?v=1697365421973">
+                </div>
+                <div class="arrivals_tag">
+                    <p>New Arrivals</p>
+                    <div class="arrivals_icon">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <a href="#" class="arrivals_btn">Learn More</a>
+                </div>
+            </div>
+
+            <div class="arrivals_card">
+                <div class="arrivals_image">
+                    <img src="https://cdn.glitch.global/9a0a1a2a-04e6-46dc-a4d2-8051b69327ce/arrival_3.jpg?v=1697365493069">
+                </div>
+                <div class="arrivals_tag">
+                    <p>New Arrivals</p>
+                    <div class="arrivals_icon">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <a href="#" class="arrivals_btn">Learn More</a>
+                </div>
+            </div>
+
+            <div class="arrivals_card">
+                <div class="arrivals_image">
+                    <img src="https://cdn.glitch.global/9a0a1a2a-04e6-46dc-a4d2-8051b69327ce/arrival_4.jpg?v=1697365509558">
+                </div>
+                <div class="arrivals_tag">
+                    <p>New Arrivals</p>
+                    <div class="arrivals_icon">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <a href="#" class="arrivals_btn">Learn More</a>
+                </div>
+            </div>
+
+            <div class="arrivals_card">
+                <div class="arrivals_image">
+                    <img src="https://cdn.glitch.global/9a0a1a2a-04e6-46dc-a4d2-8051b69327ce/arrival_5.jpg?v=1697365520462">
+                </div>
+                <div class="arrivals_tag">
+                    <p>New Arrivals</p>
+                    <div class="arrivals_icon">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <a href="#" class="arrivals_btn">Learn More</a>
+                </div>
+            </div>
+
+            <div class="arrivals_card">
+                <div class="arrivals_image">
+                    <img src="https://cdn.glitch.global/9a0a1a2a-04e6-46dc-a4d2-8051b69327ce/arrival_6.jpg?v=1697365529434">
+                </div>
+                <div class="arrivals_tag">
+                    <p>New Arrivals</p>
+                    <div class="arrivals_icon">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <a href="#" class="arrivals_btn">Learn More</a>
+                </div>
+            </div>
+
+            <div class="arrivals_card">
+                <div class="arrivals_image">
+                    <img src="https://cdn.glitch.global/9a0a1a2a-04e6-46dc-a4d2-8051b69327ce/arrival_7.jpg?v=1697365543333">
+                </div>
+                <div class="arrivals_tag">
+                    <p>New Arrivals</p>
+                    <div class="arrivals_icon">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <a href="#" class="arrivals_btn">Learn More</a>
+                </div>
+            </div>
+
+            <div class="arrivals_card">
+                <div class="arrivals_image">
+                    <img src="https://cdn.glitch.global/9a0a1a2a-04e6-46dc-a4d2-8051b69327ce/arrival_8.webp?v=1697365551574">
+                </div>
+                <div class="arrivals_tag">
+                    <p>New Arrivals</p>
+                    <div class="arrivals_icon">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <a href="#" class="arrivals_btn">Learn More</a>
+                </div>
+            </div>
+
+            <div class="arrivals_card">
+                <div class="arrivals_image">
+                    <img src="https://cdn.glitch.global/9a0a1a2a-04e6-46dc-a4d2-8051b69327ce/arrival_9.jpg?v=1697365556730">
+                </div>
+                <div class="arrivals_tag">
+                    <p>New Arrivals</p>
+                    <div class="arrivals_icon">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <a href="#" class="arrivals_btn">Learn More</a>
+                </div>
+            </div>
+
+            <div class="arrivals_card">
+                <div class="arrivals_image">
+                    <img src="https://cdn.glitch.global/9a0a1a2a-04e6-46dc-a4d2-8051b69327ce/arrival_10.jpg?v=1697365814003">
+                </div>
+                <div class="arrivals_tag">
+                    <p>New Arrivals</p>
+                    <div class="arrivals_icon">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <a href="#" class="arrivals_btn">Learn More</a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+
+    <!--reviews-->
+
+    <div class="reviews">
+        <h1>Reviews</h1>
+
+        <div class="review_box">
+
+            <div class="review_card">
+                <i class="fa-solid fa-quote-right"></i>
+                <div class="card_top">
+                    <img src="https://cdn.glitch.global/9a0a1a2a-04e6-46dc-a4d2-8051b69327ce/review_1.png?v=1697365992850">
+                </div>
+                <div class="card">
+                    <h2>Sarah_Bookworm</h2>
+                    <p>"I can't get enough of Bookish Library! It's like having a treasure trove of books at my fingertips. The recommendations are spot on, and the user interface is so intuitive.
+                    </p>
+                    <div class="review_icon">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="review_card">
+                <i class="fa-solid fa-quote-right"></i>
+                <div class="card_top">
+                    <img src="https://cdn.glitch.global/9a0a1a2a-04e6-46dc-a4d2-8051b69327ce/review_2.png?v=1697366057963">
+                </div>
+                <div class="card">
+                    <h2>John_Researcher</h2>
+                    <p>"As an academic, I rely on Bookish Library for my research needs. The vast collection of journals and scholarly texts is impressive,The ability to bookmark and highlight text digitally has been a game-changer for me. 
+                    </p>
+                    <div class="review_icon">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="review_card">
+                <i class="fa-solid fa-quote-right"></i>
+                <div class="card_top">
+                    <img src="https://cdn.glitch.global/9a0a1a2a-04e6-46dc-a4d2-8051b69327ce/review_3.png?v=1697366069121">
+                </div>
+                <div class="card">
+                    <h2> Emily_BookClubMember</h2>
+                    <p>"Bookish Library is the heart of our book club! We can create reading lists, share thoughts and annotations in real-time, and even schedule our meetings through the app. "
+                    </p>
+                    <div class="review_icon">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="review_card">
+                <i class="fa-solid fa-quote-right"></i>
+                <div class="card_top">
+                    <img src="https://cdn.glitch.global/9a0a1a2a-04e6-46dc-a4d2-8051b69327ce/review_4.png?v=1697366082093">
+                </div>
+                <div class="card">
+                    <h2>Alex_YoungReader</h2>
+                    <p>"I'm a young reader, and this app has made reading so much fun..My parents love it because they can monitor my reading progress. Bookish Library rocks!"
+                    </p>
+                    <div class="review_icon">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!--Banner-->
+
+    <div class="banner">
+        <a href="#" class="banner_btn">Learn More</a>
+    </div>
+
+
+
+
+
+    <!--Blog-->
+    
+    <div class="blog">
+        <h1>Our Blog</h1>
+        <div class="blog_box">
+
+            <div class="blog_card">
+                <div class="blog_img">
+                    <img src="https://cdn.glitch.global/9a0a1a2a-04e6-46dc-a4d2-8051b69327ce/blog_1.jpg?v=1697365846803">
+                </div>
+                <div class="blog_tag">
+                    <h2>"Unlocking New Worlds with bookish library"</h2>
+                    <p>
+                        Are you ready to embark on a literary journey like no other? Bookish Library is here to take you on a grand adventure through the world of books. In this blog post, we'll explore how this incredible application can open up new worlds and horizons for every reader, from seasoned bookworms to curious newcomers. 
+                    </p>
+                    <div class="blog_icon">
+                        <i class="fa-solid fa-calendar-days"></i>
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="blog_card">
+                <div class="blog_img">
+                    <img src="https://cdn.glitch.global/9a0a1a2a-04e6-46dc-a4d2-8051b69327ce/blog_2.jpg?v=1697365856627">
+                </div>
+                <div class="blog_tag">
+                    <h2>"From Scholarly Pursuits to Casual Reads: Bookish Library Has You Covered"</h2>
+                    <p>
+                        Academic research or leisurely reading – why choose when you can have it all with Bookish Library? In this blog post, we delve into the diverse offerings of the application, from its extensive academic resources to its vast collection of fiction and non-fiction.
+                    </p>
+                    <div class="blog_icon">
+                        <i class="fa-solid fa-calendar-days"></i>
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="blog_card">
+                <div class="blog_img">
+                    <img src="https://cdn.glitch.global/9a0a1a2a-04e6-46dc-a4d2-8051b69327ce/blog_3.jpg?v=1697366326074">
+                </div>
+                <div class="blog_tag">
+                    <h2>"Nurturing Young Readers: Bookish Library and the Joy of Childhood Literacy"</h2>
+                    <p>
+                        These fictional blog posts can be used to showcase different aspects of your library application on your website or social media to engage potential users and provide them with insights into its features and benefits
+                    </p>
+                    <div class="blog_icon">
+                        <i class="fa-solid fa-calendar-days"></i>
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <footer>
+        <div class="footer_main">
+
+            <div class="tag">
+                <img src="https://cdn.glitch.global/9a0a1a2a-04e6-46dc-a4d2-8051b69327ce/logo.png?v=1697366416074">
+                <p>
+                    At Bookish Library, we're more than just a collection of digital texts. We're a community of passionate readers, learners, and explorers. Connect with us on social media to engage in discussions, share your thoughts, and stay updated on the latest literary news and releases.
+                </p>
+
+            </div>
+
+            <div class="tag">
+                <h1>Quick Link</h1>
+                <a href="/dash">Home</a>
+                <a href="#">About</a>
+                <a href="#">Featured</a>
+                <a href="">Arrivals</a>
+                <a href="#">Reviews</a>
+                <a href="#">Blog</a>
+                
+            </div>
+
+            <div class="tag">
+                <h1>Contact Info</h1>
+                <a href="#"><i class="fa-solid fa-phone"></i>9989530421</a>
+                <a href="#"><i class="fa-solid fa-phone"></i>9866992386</a>
+                <a href="#"><i class="fa-solid fa-envelope"></i>venkatveeravalli91@gmail.com</a>
+                
+            </div>
+
+            <div class="tag">
+                <h1>Follow Us</h1>
+                <div class="social_link">
+                    <i class="fa-brands fa-facebook-f"></i>
+                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-brands fa-twitter"></i>
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </div>
+                
+            </div>
+
+            <div class="tag">
+                <h1>Newsletter</h1>
+                <div class="search_bar">
+                    <input type="text" placeholder="You email id here">
+                    <button type="submit">Subscribe</button>
+                </div>                
+            </div>            
+            
+        </div>
+
+        <p class="end">Design By<span><i class="fa-solid fa-face-grin"></i> VVS</span></p>
+
+    </footer>
+
+
+
+
+
+    
+</body>
+</html>

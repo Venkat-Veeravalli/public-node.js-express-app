@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookish - Buy and Sell Old Books</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/0fc647e4b7.js" crossorigin="anonymous"></script>
+    <style>
+        body, h1, h2, p, a, button, i {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('https://cdn.glitch.global/6bd88fc0-0627-4ecd-b1f9-85c270a40dda/Screenshot%202023-10-11%20144208.png?v=1697015544684') no-repeat center center fixed;
+            background-size: cover;
+            color: var(--text-color, #fff);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            transition: background 0.5s;
+            position: relative; /* Add position: relative to the body for positioning icons */
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 48px;
+            margin: 10px 0;
+            font-family: cursive; /* Change font-family to cursive */
+        }
+
+        p {
+            font-size: 24px;
+            margin: 30px 0;
+            font-family: cursive;
+        }
+
+        .cta {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 10px;
+            margin-right: 100px;
+            margin-left: 160px;
+            margin-top: 200px;
+            margin-bottom: 20px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+
+        h2 {
+            font-size: 36px;
+            margin: 20px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #3498db;
+            color: #fff;
+            font-size: 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: none;
+            outline: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+            transform: scale(1.05);
+        }
+
+        .social-links {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        .social-icon {
+            display: inline-block;
+            margin: 10px 0; /* Adjust margin to separate icons */
+            font-size: 30px;
+            color: #030303;
+            text-decoration: none;
+            transition: transform 0.2s;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 50%;
+        }
+
+        .social-icon:hover {
+            transform: scale(1.2);
+        }
+
+        .icon {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+
+        .icon img {
+            margin-top: -40px;
+            margin-left: -50px;
+            width: 200px;
+            height: auto;
+        }
+
+        .dark-mode-toggle:hover {
+            color: #fff;
+        }
+
+        /* Dark Mode Styles */
+        body.dark-mode {
+            background: #333;
+            color: var(--text-color, #fff);
+        }
+
+        body.dark-mode .btn {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="icon">
+        <img src="https://cdn.glitch.global/6bd88fc0-0627-4ecd-b1f9-85c270a40dda/360_F_470595705_hF9qvx9bGmeKdIrc5stzdcjPlGsY9dg8-removebg-preview.png?v=1697015224296" alt="Your Logo">
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>Welcome to Bookish Library</h1>
+            <p>Your One-Stop Shop for Buying and Selling Old Books</p>
+        </header>
+        <main>
+            <section class="cta">
+                <a href="/signup" class="btn">Get Started</a>
+            </section>
+        </main>
+        <footer>
+            <div class="social-links">
+                <div class="social-icon">
+                    <a href="https://www.facebook.com/your-page"><i class="fab fa-facebook"></i></a>
+                </div>
+                <div class="social-icon">
+                    <a href="https://twitter.com/VenkatVeeraval7?t=ynd65ce8I_-tYM4k3rK3-A&s=08"><i class="fab fa-twitter"></i></a>
+                </div>
+                <div class="social-icon">
+                    <a href="https://www.instagram.com/captain_terrible_?igshid=MzNlNGNkZWQ4Mg=="><i class="fab fa-instagram"></i></a>
+                </div>
+                <div class="social-icon">
+                    <a href="https://www.linkedin.com/in/v-v-sai-raghavendra-021837240"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <p>Already have an account? <a href="/login" class="login">Login</a></p>
+            <p>Don't have an account yet? <a href="/signup" class="signup">Sign Up</a></p>
+        </footer>
+    </div>
+
+    <script>
+        const darkModeToggle = document.getElementById("dark-mode-toggle");
+        const body = document.body;
+
+        darkModeToggle.addEventListener("click", () => {
+            if (body.classList.contains("dark-mode")) {
+                body.classList.remove("dark-mode");
+                darkModeToggle.innerHTML = '<i class="fa-regular fa-moon"></i>';
+                darkModeToggle.style.color = "white";
+                updateColors("light");
+            } else {
+                body.classList.add("dark-mode");
+                darkModeToggle.innerHTML = '<i class="fa-regular fa-sun"></i>';
+                darkModeToggle.style.color = "black";
+                updateColors("dark");
+            }
+        });
+
+        function updateColors(mode) {
+            const root = document.documentElement;
+            if (mode === "dark") {
+                root.style.setProperty('--bg-color', 'black');
+                root.style.setProperty('--text-color', 'white');
+            } else {
+                root.style.setProperty('--bg-color', 'white');
+                root.style.setProperty('--text-color', 'black');
+            }
+        }
+    </script>
+</body>
+</html>

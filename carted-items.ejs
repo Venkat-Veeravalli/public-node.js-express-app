@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Carted Items</title>
+    <style>
+        body {
+            font-family: "Arial", sans-serif;
+            text-align: center;
+            background-color: #b68989; /* Light gray background */
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin: 20px 0;
+            color: #060000; /* Dark gray title */
+        }
+
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            background-color: #fff;
+            border: 1px solid #e0b0b0;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
+            margin: 50px auto;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 15px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f9f9f9;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2; /* Alternating row background */
+        }
+
+        .quantity-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .quantity-button {
+            background: #007bff;
+            color: #fff;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 5px;
+        }
+
+        .order-now-button {
+            background: #4CAF50;
+            color: #fff;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .continue-shopping-button {
+            background: #007bff;
+            color: #fff;
+            border: 1px solid #e0b0b0;
+            border-radius: 60px;
+            font-size: 16px;
+            padding: 8px 12px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 10% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 60%;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+            border-radius: 5px;
+        }
+
+        .close {
+            position: absolute;
+            right: 10px;
+            top: 5px;
+            color: #888;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: #333;
+        }
+
+        /* Animation for "Order Confirmed" message */
+        .order-confirmed {
+            font-size: 24px;
+            color: #4CAF50;
+            animation-name: order-confirmed;
+            animation-duration: 2s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: 1;
+        }
+
+        @keyframes order-confirmed {
+            0% {
+                transform: scale(0.2);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Your Cart</h1>
+    <table>
+        <tr>
+            <th>S.No</th>
+            <th>Title</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Action</th>
+        </tr>
+        <% cartItems.forEach(function(item, index) { %>
+            <tr>
+                <td><%= index + 1 %></td>
+                <td><%= item.title %></td>
+                <td><span class="price">$<%= item.price %></span></td>
+                <td>
+                    <div class="quantity-container">
+                        <button class="quantity-button" onclick="decreaseQuantity('<%= item.id %>')">-</button>
+                        <span class="quantity"><%= item.quantity %></span>
+                        <button class="quantity-button" onclick="increaseQuantity('<%= item.id %>')">+</button>
+                    </div>
+                </td>
+                <td><button class="order-now-button" onclick="showOrderModal()">Order Now</button></td>
+            </tr>
+        <% }); %>
+    </table>
+    <a href="/books" class="continue-shopping-button">Continue Shopping</a>
+    <div id="orderModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <div class="order-confirmed">Order Confirmed</div>
+        </div>
+    </div>
+    <script>
+        function decreaseQuantity(itemId) {
+            // Implement the logic to decrease the quantity for the item with the given itemId.
+        }
+
+        function increaseQuantity(itemId) {
+            // Implement the logic to increase the quantity for the item with the given itemId.
+        }
+
+        function showOrderModal() {
+            var modal = document.getElementById("orderModal");
+            modal.style.display = "block";
+            setTimeout(function () {
+                modal.style.display = "none";
+            }, 2000); // Automatically close the modal after 2 seconds
+        }
+
+        document.getElementById("closeModal").addEventListener("click", function () {
+            var modal = document.getElementById("orderModal");
+            modal.style.display = "none";
+        });
+
+        window.addEventListener("click", function (event) {
+            var modal = document.getElementById("orderModal");
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        });
+        
+        function continueShopping() {
+            // Add the logic to continue shopping, e.g., navigate to the books page.
+        }
+    </script>
+</body>
+
+</html>
